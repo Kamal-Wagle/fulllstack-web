@@ -15,7 +15,7 @@ import { connectToDatabase } from "@/lib/db"
 
 // Environment variables
 const JWT_SECRET = process.env.JWT_SECRET
-console.log(JWT_SECRET)
+console.log(JWT_SECRET , "from top of auth.ts")
 
 
 if (!JWT_SECRET) {
