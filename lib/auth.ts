@@ -15,8 +15,11 @@ import { connectToDatabase } from "@/lib/db"
 
 // Environment variables
 const JWT_SECRET = process.env.JWT_SECRET
+console.log(JWT_SECRET)
+
 
 if (!JWT_SECRET) {
+    console.log("jwt secret key is not found // this is from auth.js page")
   throw new Error("JWT_SECRET environment variable is not defined")
 }
 
