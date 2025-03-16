@@ -8,7 +8,7 @@ import { requireAuth, hashPassword } from "@/lib/auth"
 // Get all admin users
 export async function getAdminUsers() {
   console.log("Fetching admin users")
-  const user = await requireAuth()
+  const user = await requireAuth(User.role)
   console.log("Authenticated user:", user)
 
   if (user.role !== "admin") {
@@ -22,7 +22,7 @@ export async function getAdminUsers() {
   try {
     const users = await User.find().select("username role createdAt updatedAt").sort({ createdAt: -1 })
     console.log("Fetched users:", users)
-    return { success: true, data: JSON.parse(JSON.stringify(users)) }
+    return { success: true, users , data: JSON.parse(JSON.stringify(users)) }
   } catch (error) {
     console.error("Error fetching admin users:", error)
     return { success: false, error: "Failed to fetch admin users" }
