@@ -13,8 +13,10 @@ export const metadata: Metadata = {
 }
 
 export default async function UsersPage() {
+  console.log("user page")
   const result = await getAdminUsers()
   const users = result.success ? result.data : []
+  console.log(users)
 
   return (
     <div className="space-y-6">
